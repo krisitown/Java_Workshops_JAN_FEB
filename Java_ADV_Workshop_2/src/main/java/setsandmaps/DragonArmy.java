@@ -1,7 +1,6 @@
 package setsandmaps;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class DragonArmy {
     private static final int DEFAULT_DAMAGE = 45;

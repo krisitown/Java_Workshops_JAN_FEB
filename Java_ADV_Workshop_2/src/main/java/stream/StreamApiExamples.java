@@ -75,5 +75,53 @@ public class StreamApiExamples {
 
         optional.ifPresent(v -> System.out.println(v));
         optional2.ifPresent(v -> System.out.println(v));
+
+        String str = null;
+        if (str == null) {
+            //todo: handle
+        }
+
+        str.split("\\s+");
+
+        Optional<String> strOptional = Optional.empty();
+        strOptional.map(value -> value.split("\\s+"));
+
+        List<String> strList1 = new ArrayList<>();
+        ArrayList<String> strList2 = new ArrayList<>();
+
+        join1(", ", strList1);
+        join1(", ", strList2);
+
+//        join2(", ", strList1); doesn't work
+//        join2(", ", strList2); doesn't work
+
+        //IntStream -> int[] (mapToInt)
+        //Stream<Integer> -> Integer[] / List<Integer> (map)
+
+        int a = 10;
+        Integer b = a; //auto boxing
+        int c = b; //unboxing
+    }
+
+    public static String join1(String delimiter, List list) {
+        return String.join(delimiter, list);
+    }
+
+    public static String join2(String delimiter, LinkedList list) {
+        return String.join(delimiter, list);
+    }
+
+    public static <T> T getFirst(List<T> list) {
+        return list.get(0);
+    }
+
+    public static <T> Optional<T> findObject(List<T> list, T object) {
+        for (T element : list) {
+            if (element == object) {
+                return Optional.of(element);
+            }
+        }
+
+        return Optional.empty();
     }
 }
